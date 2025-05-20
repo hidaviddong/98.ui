@@ -33,6 +33,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-disabled: var(--disabled);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -41,6 +42,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --shadow-button: -1px -1px 0px 0px var(--color-primary-foreground) inset, 1px 1px 0px 0px var(--color-background) inset, -2px -2px 0px 0px #808080 inset, 2px 2px 0px 0px #DFDFDF inset;
+  --shadow-button-active: -1px -1px 0px 0px var(--color-background) inset, 1px 1px 0px 0px var(--color-primary-foreground) inset, -2px -2px 0px 0px #DFDFDF inset, 2px 2px 0px 0px #808080 inset;
 }
 
 :root {
@@ -51,8 +54,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.8078 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --disabled: oklch(0.5999 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);

@@ -17,7 +17,13 @@
                 "path": "components/ui/button.tsx",
                 "type": "registry:component"
               }
-            ]
+            ],
+            "cssVars": {
+              "theme": {
+                "font-sans": "var(--font-ms-sans-serif)"
+              }
+            },
+            "docs": "This button component is designed with the MS Sans Serif font (via --font-sans CSS variable) and specific Win98 style shadows. Please ensure:\n1. You have MS Sans Serif font files and configured them in your project (e.g., via next/font/local and global CSS) to set the '--font-ms-sans-serif' variable, and that your '--font-sans' variable uses it.\n2. The following shadow utilities are defined in your tailwind.config.ts: 'win98-default' and 'win98-active'. Refer to 98.ui documentation for exact definitions."
         }
     ]
 }
