@@ -44,6 +44,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --shadow-button: -1px -1px 0px 0px var(--color-primary-foreground) inset, 1px 1px 0px 0px var(--color-background) inset, -2px -2px 0px 0px #808080 inset, 2px 2px 0px 0px #DFDFDF inset;
   --shadow-button-active: -1px -1px 0px 0px var(--color-background) inset, 1px 1px 0px 0px var(--color-primary-foreground) inset, -2px -2px 0px 0px #DFDFDF inset, 2px 2px 0px 0px #808080 inset;
+  --shadow-checkbox: -1px -1px 0px 0px #FFF inset, 1px 1px 0px 0px #808080 inset, -2px -2px 0px 0px #DFDFDF inset, 2px 2px 0px 0px #0A0A0A inset;
 }
 
 :root {

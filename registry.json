@@ -18,6 +18,18 @@
                 "type": "registry:component"
               }
             ]
+        },
+        {
+          "name": "checkbox",
+          "type": "registry:component",
+          "title": "win98 checkbox",
+          "dependencies": ["class-variance-authority"],
+          "files": [
+            {
+              "path": "components/ui/checkbox.tsx",
+              "type": "registry:component"
+            }
+          ]
         }
     ]
 }

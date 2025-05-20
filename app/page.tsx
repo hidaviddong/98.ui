@@ -1,10 +1,42 @@
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-4 items-center justify-center h-screen">
-      <Button>Click me</Button>
-      <Button disabled>Click me</Button>
+      <div className="flex flex-col gap-2">
+        <p>Button</p>
+        <div className="flex gap-2">
+        <Button>Click me</Button>
+        <Button disabled>Click me</Button>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <p>Checkbox</p>
+        <div className="flex flex-col gap-2">
+          <div className="flex gap-2">
+            <Checkbox id="terms" />
+            <label
+              htmlFor="terms"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              This is a checkbox
+            </label>
+          </div>
+          <div className="flex gap-2">
+            <Checkbox id="terms" disabled/>
+            <label
+              htmlFor="terms"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+              This is a checkbox
+            </label>
+          </div>
+         
+        </div>
+      </div>
+
     </div>
   );
 }
