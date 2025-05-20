@@ -1,18 +1,24 @@
 {
     "$schema": "https://ui.shadcn.com/schema/registry.json",
-    "name": "retro.ui",
-    "homepage": "https://retro-ui-six.vercel.app/",
+    "name": "98.ui",
+    "homepage": "https://98-ui.vercel.app/",
+    "dependencies":[
+      "tailwind-merge",
+      "clsx"
+    ],
     "items": [
         {
-            "name": "hello-world",
-            "type": "registry:block",
+            "name": "button",
+            "type": "registry:component",
+            "title": "win98 button",
+            "dependencies": ["class-variance-authority"],
             "files": [
               {
-                "path": "registry/win-98/hello-world.tsx",
+                "path": "components/ui/button.tsx",
                 "type": "registry:component"
               }
             ]
         }
     ]
-  }
+}
   
