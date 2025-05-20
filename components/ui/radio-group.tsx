@@ -115,7 +115,7 @@ function RadioGroupItem({
 			data-slot="radio-group-item"
 			className={cn(
 				"group",
-				"text-primary outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed flex items-center justify-center relative",
+				"text-primary outline-none disabled:cursor-not-allowed flex items-center justify-center relative",
 				className,
 			)}
 			{...props}
