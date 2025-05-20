@@ -5,23 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex shadow-button bg-primary text-primary-foreground items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:text-disabled [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none ",
+  "inline-flex shadow-button bg-primary text-primary-foreground items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:text-disabled [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 focus:outline-dashed focus:outline focus:outline-1 focus:outline-offset-[-4px] focus:outline-black",
   {
     variants: {
       variant: {
         default:
-          "active:shadow-button-active",
-        outline:
-          "border bg-background shadow-xs",
-        secondary:
-          "text-secondary-foreground shadow-xs",
-        link: "text-primary underline-offset-4",
+          "active:shadow-button-active"
       },
       size: {
-        default: "w-24 h-8 px-12 py-4 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        default: "w-24 h-8 px-12 py-4 has-[>svg]:px-3"
       },
     },
     defaultVariants: {

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run registry:build && next build",
     "registry:build": "shadcn registry:build",
     "start": "next start",
     "lint": "next lint"
