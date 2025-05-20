@@ -1,0 +1,18 @@
+{
+    "$schema": "https://ui.shadcn.com/schema/registry.json",
+    "name": "retro.ui",
+    "homepage": "https://retro-ui-six.vercel.app/",
+    "items": [
+        {
+            "name": "hello-world",
+            "type": "registry:block",
+            "files": [
+              {
+                "path": "registry/win-98/hello-world.tsx",
+                "type": "registry:component"
+              }
+            ]
+        }
+    ]
+  }
+  

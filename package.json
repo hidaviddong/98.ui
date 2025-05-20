@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "registry:build": "shadcn build",
+    "registry:build": "shadcn registry:build",
     "start": "next start",
     "lint": "next lint"
   },
