@@ -30,6 +30,18 @@
               "type": "registry:component"
             }
           ]
+        },
+        {
+          "name": "radio-group",
+          "type": "registry:component",
+          "title": "win98 radio group",
+          "dependencies": ["class-variance-authority"],
+          "files": [
+            {
+              "path": "components/ui/radio-group.tsx",
+              "type": "registry:component"
+            }
+          ]
         }
     ]
 }
