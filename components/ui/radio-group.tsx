@@ -44,7 +44,7 @@ function RadioIcon({ className }: { className: string }) {
 					fillRule="evenodd"
 					clipRule="evenodd"
 					d="M4 2.5H8V3.5H9V4.5H10V8.5H9V9.5H8V10.5H4V9.5H3V8.5H2V4.5H3V3.5H4V2.5Z"
-          className="group-disabled:fill-primary fill-white"
+					className="group-disabled:fill-primary fill-white"
 				/>
 			</g>
 			<defs>
