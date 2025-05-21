@@ -42,6 +42,30 @@
               "type": "registry:component"
             }
           ]
+        },
+        {
+          "name": "input",
+          "type": "registry:component",
+          "title": "win98 input",
+          "dependencies": ["class-variance-authority"],
+          "files": [
+            {
+              "path": "components/ui/input.tsx",
+              "type": "registry:component"
+            }
+          ]
+        },
+        {
+          "name": "select",
+          "type": "registry:component",
+          "title": "win98 select",
+          "dependencies": ["class-variance-authority"],
+          "files": [
+            {
+              "path": "components/ui/select.tsx",
+              "type": "registry:component"
+            }
+          ]
         }
     ]
 }

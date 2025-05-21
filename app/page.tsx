@@ -2,6 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "@/components/ui/select";
 
 export default function Home() {
 	return (
@@ -51,6 +59,29 @@ export default function Home() {
 						<Label htmlFor="r2">Comfortable</Label>
 					</div>
 				</RadioGroup>
+			</div>
+
+			<div className="flex flex-col gap-2">
+				<p>Input</p>
+				<div className="flex flex-col gap-2">
+					<Input type="email" placeholder="test@test.com" />
+					<Input disabled type="email" placeholder="test@test.com" />
+					<Input type="password" />
+				</div>
+			</div>
+
+			<div className="flex flex-col gap-2">
+				<p>Select</p>
+				<Select>
+					<SelectTrigger className="w-[180px]">
+						<SelectValue placeholder="Theme" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="light">Light</SelectItem>
+						<SelectItem value="dark">Dark</SelectItem>
+						<SelectItem value="system">System</SelectItem>
+					</SelectContent>
+				</Select>
 			</div>
 		</div>
 	);

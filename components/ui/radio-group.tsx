@@ -71,7 +71,7 @@ function CircleIcon({ className }: { className: string }) {
 			fill="none"
 			className={className}
 		>
-			<g clip-path="url(#clip0_4_63)">
+			<g clipPath="url(#clip0_4_63)">
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"
