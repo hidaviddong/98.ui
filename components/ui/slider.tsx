@@ -112,9 +112,11 @@ function SliderIcon({ className }: { className: string }) {
 	);
 }
 
-function SliderVerticalIcon({className}:{className:string}) {
+function SliderVerticalIcon({ className }: { className: string }) {
 	return (
-    <div className={cn("w-[21px] h-[11px] bg-[#C0C0C0] shadow-button", className)}></div>
+		<div
+			className={cn("w-[21px] h-[11px] bg-[#C0C0C0] shadow-button", className)}
+		></div>
 	);
 }
 
@@ -144,19 +146,16 @@ function Slider({
 				className={cn(
 					"bg-black shadow-slider relative grow overflow-hidden data-[orientation=horizontal]:h-[3px] data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-[3px]",
 				)}
-			>
-			</SliderPrimitive.Track>
+			></SliderPrimitive.Track>
 			<SliderPrimitive.Thumb
 				data-slot="slider-thumb"
 				className="block absolute focus:outline-none size-4 shrink-0 transition-[color,box-shadow] disabled:pointer-events-none"
 			>
-        {
-          props.orientation === "vertical" ? (
-            <SliderVerticalIcon className="relative right-2.5"/>
-          ) : (
-            <SliderIcon className="relative bottom-2.5"/>
-          )
-        }
+				{props.orientation === "vertical" ? (
+					<SliderVerticalIcon className="relative right-2.5" />
+				) : (
+					<SliderIcon className="relative bottom-2.5" />
+				)}
 			</SliderPrimitive.Thumb>
 		</SliderPrimitive.Root>
 	);
