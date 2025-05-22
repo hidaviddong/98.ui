@@ -1,17 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox",
-  "type": "registry:component",
-  "title": "win98 checkbox",
+  "type": "registry:ui",
   "dependencies": [
-    "class-variance-authority",
+    "@radix-ui/react-checkbox",
     "@radix-ui/react-checkbox"
   ],
   "files": [
     {
       "path": "components/ui/checkbox.tsx",
-      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\"\n\nimport { cn } from \"@/lib/utils\"\n\n\nfunction CheckIcon({className}:{className:string}){\n  return (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"7\" height=\"7\" viewBox=\"0 0 7 7\" fill=\"none\" className={className}>\n      <g clipPath=\"url(#clip0_3_1891)\">\n        <path fillRule=\"evenodd\" clipRule=\"evenodd\" d=\"M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z\" fill=\"black\"/>\n      </g>\n      <defs>\n        <clipPath id=\"clip0_3_1891\">\n          <rect width=\"7\" height=\"7\" fill=\"white\"/>\n        </clipPath>\n      </defs>\n    </svg>\n  )\n}\n\nfunction Checkbox({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      className={cn(\n        \"peer border-input data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive size-4 shrink-0 shadow-checkbox transition-shadow outline-none disabled:cursor-not-allowed disabled:bg-primary\",\n        className\n      )}\n      {...props}\n    >\n      <CheckboxPrimitive.Indicator\n        data-slot=\"checkbox-indicator\"\n        className=\"flex items-center justify-center text-current transition-none\"\n      >\n        <CheckIcon className=\"size-2\" />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Root>\n  )\n}\n\nexport { Checkbox }\n",
-      "type": "registry:component"
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as CheckboxPrimitive from \"@radix-ui/react-checkbox\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction CheckIcon({ className }: { className: string }) {\n\treturn (\n\t\t<svg\n\t\t\txmlns=\"http://www.w3.org/2000/svg\"\n\t\t\twidth=\"7\"\n\t\t\theight=\"7\"\n\t\t\tviewBox=\"0 0 7 7\"\n\t\t\tfill=\"none\"\n\t\t\tclassName={className}\n\t\t>\n\t\t\t<g clipPath=\"url(#clip0_3_1891)\">\n\t\t\t\t<path\n\t\t\t\t\tfillRule=\"evenodd\"\n\t\t\t\t\tclipRule=\"evenodd\"\n\t\t\t\t\td=\"M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z\"\n\t\t\t\t\tfill=\"black\"\n\t\t\t\t/>\n\t\t\t</g>\n\t\t\t<defs>\n\t\t\t\t<clipPath id=\"clip0_3_1891\">\n\t\t\t\t\t<rect width=\"7\" height=\"7\" fill=\"white\" />\n\t\t\t\t</clipPath>\n\t\t\t</defs>\n\t\t</svg>\n\t);\n}\n\nfunction Checkbox({\n\tclassName,\n\t...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n\treturn (\n\t\t<CheckboxPrimitive.Root\n\t\t\tdata-slot=\"checkbox\"\n\t\t\tclassName={cn(\n\t\t\t\t\"peer border-input data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 aria-invalid:border-destructive size-4 shrink-0 shadow-checkbox transition-shadow outline-none disabled:cursor-not-allowed disabled:bg-primary\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<CheckboxPrimitive.Indicator\n\t\t\t\tdata-slot=\"checkbox-indicator\"\n\t\t\t\tclassName=\"flex items-center justify-center text-current transition-none\"\n\t\t\t>\n\t\t\t\t<CheckIcon className=\"size-2\" />\n\t\t\t</CheckboxPrimitive.Indicator>\n\t\t</CheckboxPrimitive.Root>\n\t);\n}\n\nexport { Checkbox };\n",
+      "type": "registry:ui"
     }
   ]
 }

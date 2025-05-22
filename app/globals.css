@@ -52,6 +52,8 @@
 		) inset, -2px -2px 0px 0px #dfdfdf inset, 2px 2px 0px 0px #808080 inset;
 	--shadow-checkbox:
 		-1px -1px 0px 0px #fff inset, 1px 1px 0px 0px #808080 inset, -2px -2px 0px 0px #dfdfdf inset, 2px 2px 0px 0px #0a0a0a inset;
+	--shadow-slider:
+	    1px 1px 0px 0px #B8B8B8 inset, 0px 1px 0px 0px #FFF, -1px -1px 0px 0px #757575 inset, 0px 1px 0px 0px #9F9F9F;
 }
 
 :root {

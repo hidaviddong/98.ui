@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:ui",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/ui/input.tsx",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Input({ className, type, ...props }: React.ComponentProps<\"input\">) {\n\treturn (\n\t\t<input\n\t\t\ttype={type}\n\t\t\tdata-slot=\"input\"\n\t\t\tclassName={cn(\n\t\t\t\t\"file:text-foreground shadow-checkbox placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground border-input flex h-7 w-full min-w-0 bg-transparent px-1 py-1 text-base transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-primary disabled:text-primary-foreground md:text-sm\",\n\t\t\t\t\"aria-invalid:ring-destructive/20 aria-invalid:border-destructive\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t/>\n\t);\n}\n\nexport { Input };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

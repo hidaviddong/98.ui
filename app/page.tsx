@@ -10,11 +10,12 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 
 export default function Home() {
 	return (
 		<div className="flex flex-col gap-4 items-center justify-center h-screen">
-			<div className="flex flex-col gap-2">
+			<div className="flex w-48 flex-col gap-2">
 				<p>Button</p>
 				<div className="flex gap-2">
 					<Button>Click me</Button>
@@ -22,7 +23,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex flex-col gap-2">
+			<div className="flex w-48 flex-col gap-2">
 				<p>Checkbox</p>
 				<div className="flex flex-col gap-2">
 					<div className="flex gap-2">
@@ -46,7 +47,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex flex-col gap-2">
+			<div className="flex w-48 flex-col gap-2">
 				<p>Radio</p>
 
 				<RadioGroup defaultValue="default">
@@ -61,7 +62,7 @@ export default function Home() {
 				</RadioGroup>
 			</div>
 
-			<div className="flex flex-col gap-2">
+			<div className="flex w-48 flex-col gap-2">
 				<p>Input</p>
 				<div className="flex flex-col gap-2">
 					<Input type="email" placeholder="test@test.com" />
@@ -70,7 +71,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex flex-col gap-2">
+			<div className="flex w-48 flex-col gap-2">
 				<p>Select</p>
 				<Select>
 					<SelectTrigger className="w-[180px]">
@@ -82,6 +83,12 @@ export default function Home() {
 						<SelectItem value="system">System</SelectItem>
 					</SelectContent>
 				</Select>
+			</div>
+
+			<div className="flex w-48 flex-col gap-2">
+				<p>Slider</p>
+				<Slider defaultValue={[33]} max={100} step={1} />
+				<Slider defaultValue={[33]} max={100} step={1} orientation="vertical" />
 			</div>
 		</div>
 	);

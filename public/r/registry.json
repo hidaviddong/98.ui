@@ -9,25 +9,66 @@
     "items": [
         {
             "name": "button",
-            "type": "registry:component",
-            "title": "win98 button",
-            "dependencies": ["class-variance-authority"],
+            "type": "registry:ui",
+            "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
             "files": [
               {
                 "path": "components/ui/button.tsx",
-                "type": "registry:component"
+                "type": "registry:ui"
               }
             ]
         },
         {
           "name": "checkbox",
-          "type": "registry:component",
-          "title": "win98 checkbox",
-          "dependencies": ["class-variance-authority"],
+          "type": "registry:ui",
+          "dependencies": ["@radix-ui/react-checkbox"],
           "files": [
             {
               "path": "components/ui/checkbox.tsx",
-              "type": "registry:component"
+              "type": "registry:ui"
+            }
+          ]
+        },
+        {
+          "name": "radio-group",
+          "type": "registry:ui",
+          "dependencies": ["@radix-ui/react-radio-group"],
+          "files": [
+            {
+              "path": "components/ui/radio-group.tsx",
+              "type": "registry:ui"
+            }
+          ]
+        },
+        {
+          "name": "input",
+          "type": "registry:ui",
+          "files": [
+            {
+              "path": "components/ui/input.tsx",
+              "type": "registry:ui"
+            }
+          ]
+        },
+        {
+          "name": "select",
+          "type": "registry:ui",
+          "dependencies": ["@radix-ui/react-select"],
+          "files": [
+            {
+              "path": "components/ui/select.tsx",
+              "type": "registry:ui"
+            }
+          ]
+        },
+        {
+          "name": "slider",
+          "type": "registry:ui",
+          "dependencies": ["@radix-ui/react-slider"],
+          "files": [
+            {
+              "path": "components/ui/slider.tsx",
+              "type": "registry:ui"
             }
           ]
         }
