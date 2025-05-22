@@ -82,6 +82,17 @@
               "type": "registry:ui"
             }
           ]
+        },
+        {
+          "name": "menubar",
+          "type": "registry:ui",
+          "dependencies": ["@radix-ui/react-menubar"],
+          "files": [
+            {
+              "path": "components/ui/menubar.tsx",
+              "type": "registry:ui"
+            }
+          ]
         }
     ]
 }

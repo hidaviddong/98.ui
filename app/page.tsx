@@ -20,10 +20,26 @@ import {
 	DialogFooter,
 } from "@/components/ui/dialog";
 
+import {
+	Menubar,
+	MenubarCheckboxItem,
+	MenubarContent,
+	MenubarItem,
+	MenubarMenu,
+	MenubarRadioGroup,
+	MenubarRadioItem,
+	MenubarSeparator,
+	MenubarShortcut,
+	MenubarSub,
+	MenubarSubContent,
+	MenubarSubTrigger,
+	MenubarTrigger,
+} from "@/components/ui/menubar";
+
 export default function Home() {
 	return (
-		<div className="flex flex-col gap-4 items-center justify-center h-screen">
-			<div className="flex w-48 flex-col gap-2">
+		<div className="flex flex-col gap-4 items-center justify-center">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Button</p>
 				<div className="flex gap-2">
 					<Button>Click me</Button>
@@ -31,7 +47,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex w-48 flex-col gap-2">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Checkbox</p>
 				<div className="flex flex-col gap-2">
 					<div className="flex gap-2">
@@ -55,7 +71,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex w-48 flex-col gap-2">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Radio</p>
 
 				<RadioGroup defaultValue="default">
@@ -70,7 +86,7 @@ export default function Home() {
 				</RadioGroup>
 			</div>
 
-			<div className="flex w-48 flex-col gap-2">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Input</p>
 				<div className="flex flex-col gap-2">
 					<Input type="email" placeholder="test@test.com" />
@@ -79,7 +95,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="flex w-48 flex-col gap-2">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Select</p>
 				<Select>
 					<SelectTrigger className="w-[180px]">
@@ -93,13 +109,13 @@ export default function Home() {
 				</Select>
 			</div>
 
-			<div className="flex w-48 flex-col gap-2">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Slider</p>
 				<Slider defaultValue={[33]} max={100} step={1} />
 				<Slider defaultValue={[33]} max={100} step={1} orientation="vertical" />
 			</div>
 
-			<div className="flex w-48 flex-col gap-2">
+			<div className="flex w-72 flex-col gap-2">
 				<p>Dialog</p>
 				<Dialog>
 					<DialogTrigger asChild>
@@ -136,6 +152,99 @@ export default function Home() {
 						</DialogFooter>
 					</DialogContent>
 				</Dialog>
+			</div>
+
+			<div className="flex w-72 flex-col gap-2">
+				<p>Menu Bar</p>
+				<Menubar>
+					<MenubarMenu>
+						<MenubarTrigger>File</MenubarTrigger>
+						<MenubarContent>
+							<MenubarItem>
+								New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+							</MenubarItem>
+							<MenubarItem>
+								New Window <MenubarShortcut>⌘N</MenubarShortcut>
+							</MenubarItem>
+							<MenubarItem disabled>New Incognito Window</MenubarItem>
+							<MenubarSeparator />
+							<MenubarSub>
+								<MenubarSubTrigger>Share</MenubarSubTrigger>
+								<MenubarSubContent>
+									<MenubarItem>Email link</MenubarItem>
+									<MenubarItem>Messages</MenubarItem>
+									<MenubarItem>Notes</MenubarItem>
+								</MenubarSubContent>
+							</MenubarSub>
+							<MenubarSeparator />
+							<MenubarItem>
+								Print... <MenubarShortcut>⌘P</MenubarShortcut>
+							</MenubarItem>
+						</MenubarContent>
+					</MenubarMenu>
+					<MenubarMenu>
+						<MenubarTrigger>Edit</MenubarTrigger>
+						<MenubarContent>
+							<MenubarItem>
+								Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+							</MenubarItem>
+							<MenubarItem>
+								Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+							</MenubarItem>
+							<MenubarSeparator />
+							<MenubarSub>
+								<MenubarSubTrigger>Find</MenubarSubTrigger>
+								<MenubarSubContent>
+									<MenubarItem>Search the web</MenubarItem>
+									<MenubarSeparator />
+									<MenubarItem>Find...</MenubarItem>
+									<MenubarItem>Find Next</MenubarItem>
+									<MenubarItem>Find Previous</MenubarItem>
+								</MenubarSubContent>
+							</MenubarSub>
+							<MenubarSeparator />
+							<MenubarItem>Cut</MenubarItem>
+							<MenubarItem>Copy</MenubarItem>
+							<MenubarItem>Paste</MenubarItem>
+						</MenubarContent>
+					</MenubarMenu>
+					<MenubarMenu>
+						<MenubarTrigger>View</MenubarTrigger>
+						<MenubarContent>
+							<MenubarCheckboxItem>
+								Always Show Bookmarks Bar
+							</MenubarCheckboxItem>
+							<MenubarCheckboxItem checked>
+								Always Show Full URLs
+							</MenubarCheckboxItem>
+							<MenubarSeparator />
+							<MenubarItem inset>
+								Reload <MenubarShortcut>⌘R</MenubarShortcut>
+							</MenubarItem>
+							<MenubarItem disabled inset>
+								Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+							</MenubarItem>
+							<MenubarSeparator />
+							<MenubarItem inset>Toggle Fullscreen</MenubarItem>
+							<MenubarSeparator />
+							<MenubarItem inset>Hide Sidebar</MenubarItem>
+						</MenubarContent>
+					</MenubarMenu>
+					<MenubarMenu>
+						<MenubarTrigger>Profiles</MenubarTrigger>
+						<MenubarContent>
+							<MenubarRadioGroup value="benoit">
+								<MenubarRadioItem value="andy">Andy</MenubarRadioItem>
+								<MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
+								<MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+							</MenubarRadioGroup>
+							<MenubarSeparator />
+							<MenubarItem inset>Edit...</MenubarItem>
+							<MenubarSeparator />
+							<MenubarItem inset>Add Profile...</MenubarItem>
+						</MenubarContent>
+					</MenubarMenu>
+				</Menubar>
 			</div>
 		</div>
 	);
