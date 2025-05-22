@@ -11,6 +11,14 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+	DialogFooter,
+} from "@/components/ui/dialog";
 
 export default function Home() {
 	return (
@@ -89,6 +97,45 @@ export default function Home() {
 				<p>Slider</p>
 				<Slider defaultValue={[33]} max={100} step={1} />
 				<Slider defaultValue={[33]} max={100} step={1} orientation="vertical" />
+			</div>
+
+			<div className="flex w-48 flex-col gap-2">
+				<p>Dialog</p>
+				<Dialog>
+					<DialogTrigger asChild>
+						<Button>Edit Profile</Button>
+					</DialogTrigger>
+					<DialogContent className="sm:max-w-[425px]">
+						<DialogHeader>
+							<DialogTitle>Edit profile</DialogTitle>
+						</DialogHeader>
+						<div className="grid gap-4 py-4 px-2">
+							<div className="grid grid-cols-4 items-center gap-4">
+								<Label htmlFor="name" className="text-right">
+									Name
+								</Label>
+								<Input
+									id="name"
+									defaultValue="David Dong"
+									className="col-span-3"
+								/>
+							</div>
+							<div className="grid grid-cols-4 items-center gap-4">
+								<Label htmlFor="username" className="text-right">
+									Username
+								</Label>
+								<Input
+									id="username"
+									defaultValue="@hidaviddong"
+									className="col-span-3"
+								/>
+							</div>
+						</div>
+						<DialogFooter className="p-2">
+							<Button type="submit">Save changes</Button>
+						</DialogFooter>
+					</DialogContent>
+				</Dialog>
 			</div>
 		</div>
 	);

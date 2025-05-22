@@ -71,6 +71,17 @@
               "type": "registry:ui"
             }
           ]
+        },
+        {
+          "name": "dialog",
+          "type": "registry:ui",
+          "dependencies": ["@radix-ui/react-dialog"],
+          "files": [
+            {
+              "path": "components/ui/dialog.tsx",
+              "type": "registry:ui"
+            }
+          ]
         }
     ]
 }
