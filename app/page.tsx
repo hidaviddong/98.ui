@@ -17,7 +17,6 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-	DialogFooter,
 } from "@/components/ui/dialog";
 
 import {
@@ -26,8 +25,6 @@ import {
 	MenubarContent,
 	MenubarItem,
 	MenubarMenu,
-	MenubarRadioGroup,
-	MenubarRadioItem,
 	MenubarSeparator,
 	MenubarShortcut,
 	MenubarSub,
@@ -41,7 +38,6 @@ import { Progress } from "@/components/ui/progress";
 import {
 	Table,
 	TableBody,
-	TableCaption,
 	TableCell,
 	TableHead,
 	TableHeader,
@@ -50,273 +46,355 @@ import {
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export default function Home() {
+const ComponentSection = ({
+	title,
+	children,
+	sourceCode,
+}: { title: string; children: React.ReactNode; sourceCode: string }) => {
 	return (
-		<div className="flex flex-col gap-4 items-center justify-center">
-			<div className="flex w-72 flex-col gap-2">
-				<p>Button</p>
-				<div className="flex gap-2">
-					<Button>Click me</Button>
-					<Button disabled>Click me</Button>
-				</div>
-			</div>
-
-			<div className="flex w-72 flex-col gap-2">
-				<p>Checkbox</p>
-				<div className="flex flex-col gap-2">
-					<div className="flex gap-2">
-						<Checkbox id="terms" />
-						<label
-							htmlFor="terms"
-							className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-						>
-							This is a checkbox
-						</label>
-					</div>
-					<div className="flex gap-2">
-						<Checkbox id="terms" disabled />
-						<label
-							htmlFor="terms"
-							className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-						>
-							This is a checkbox
-						</label>
-					</div>
-				</div>
-			</div>
-
-			<div className="flex w-72 flex-col gap-2">
-				<p>Radio</p>
-
-				<RadioGroup defaultValue="default">
-					<div className="flex items-center space-x-2">
-						<RadioGroupItem value="default" id="r1" />
-						<Label htmlFor="r1">Default</Label>
-					</div>
-					<div className="flex items-center space-x-2">
-						<RadioGroupItem value="comfortable" id="r2" disabled />
-						<Label htmlFor="r2">Comfortable</Label>
-					</div>
-				</RadioGroup>
-			</div>
-
-			<div className="flex w-72 flex-col gap-2">
-				<p>Input</p>
-				<div className="flex flex-col gap-2">
-					<Input type="email" placeholder="test@test.com" />
-					<Input disabled type="email" placeholder="test@test.com" />
-					<Input type="password" />
-				</div>
-			</div>
-
-			<div className="flex w-72 flex-col gap-2">
-				<p>Select</p>
-				<Select>
-					<SelectTrigger className="w-[180px]">
-						<SelectValue placeholder="Theme" />
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="light">Light</SelectItem>
-						<SelectItem value="dark">Dark</SelectItem>
-						<SelectItem value="system">System</SelectItem>
-					</SelectContent>
-				</Select>
-			</div>
-
-			<div className="flex w-72 flex-col gap-2">
-				<p>Slider</p>
-
-				<Slider defaultValue={[20]} />
-				<Slider defaultValue={[33]} max={100} step={1} orientation="vertical" />
-			</div>
-
-			<div className="flex w-72 flex-col gap-2">
-				<p>Dialog</p>
+		<div className="flex flex-col gap-4 p-4 bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
+			<div className="flex items-center justify-between">
+				<h2 className="text-lg font-bold text-black">{title}</h2>
 				<Dialog>
 					<DialogTrigger asChild>
-						<Button>Edit Profile</Button>
+						<Button>View Source</Button>
 					</DialogTrigger>
-					<DialogContent className="sm:max-w-[425px]">
+					<DialogContent className="sm:max-w-[800px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
 						<DialogHeader>
-							<DialogTitle>Edit profile</DialogTitle>
+							<DialogTitle className="text-black">
+								Source Code - {title}
+							</DialogTitle>
 						</DialogHeader>
-						<div className="grid gap-4 py-4 px-2">
-							<div className="grid grid-cols-4 items-center gap-4">
-								<Label htmlFor="name" className="text-right">
-									Name
-								</Label>
-								<Input
-									id="name"
-									defaultValue="David Dong"
-									className="col-span-3"
-								/>
-							</div>
-							<div className="grid grid-cols-4 items-center gap-4">
-								<Label htmlFor="username" className="text-right">
-									Username
-								</Label>
-								<Input
-									id="username"
-									defaultValue="@hidaviddong"
-									className="col-span-3"
-								/>
-							</div>
-						</div>
-						<DialogFooter className="p-2">
-							<Button type="submit">Save changes</Button>
-						</DialogFooter>
+						<pre className="p-4 bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] rounded-none overflow-auto max-h-[60vh]">
+							<code className="text-black">{sourceCode}</code>
+						</pre>
 					</DialogContent>
 				</Dialog>
 			</div>
+			<div className="flex flex-col gap-4">{children}</div>
+		</div>
+	);
+};
 
-			<div className="flex w-72 flex-col gap-2">
-				<p>Menu Bar</p>
-				<Menubar>
-					<MenubarMenu>
-						<MenubarTrigger>File</MenubarTrigger>
-						<MenubarContent>
-							<MenubarItem>
-								New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-							</MenubarItem>
-							<MenubarItem>
-								New Window <MenubarShortcut>⌘N</MenubarShortcut>
-							</MenubarItem>
-							<MenubarItem disabled>New Incognito Window</MenubarItem>
-							<MenubarSeparator />
-							<MenubarSub>
-								<MenubarSubTrigger>Share</MenubarSubTrigger>
-								<MenubarSubContent>
-									<MenubarItem>Email link</MenubarItem>
-									<MenubarItem>Messages</MenubarItem>
-									<MenubarItem>Notes</MenubarItem>
-								</MenubarSubContent>
-							</MenubarSub>
-							<MenubarSeparator />
-							<MenubarItem>
-								Print... <MenubarShortcut>⌘P</MenubarShortcut>
-							</MenubarItem>
-						</MenubarContent>
-					</MenubarMenu>
-					<MenubarMenu>
-						<MenubarTrigger>Edit</MenubarTrigger>
-						<MenubarContent>
-							<MenubarItem>
-								Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-							</MenubarItem>
-							<MenubarItem>
-								Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-							</MenubarItem>
-							<MenubarSeparator />
-							<MenubarSub>
-								<MenubarSubTrigger>Find</MenubarSubTrigger>
-								<MenubarSubContent>
-									<MenubarItem>Search the web</MenubarItem>
-									<MenubarSeparator />
-									<MenubarItem>Find...</MenubarItem>
-									<MenubarItem>Find Next</MenubarItem>
-									<MenubarItem>Find Previous</MenubarItem>
-								</MenubarSubContent>
-							</MenubarSub>
-							<MenubarSeparator />
-							<MenubarItem>Cut</MenubarItem>
-							<MenubarItem>Copy</MenubarItem>
-							<MenubarItem>Paste</MenubarItem>
-						</MenubarContent>
-					</MenubarMenu>
-					<MenubarMenu>
-						<MenubarTrigger>View</MenubarTrigger>
-						<MenubarContent>
-							<MenubarCheckboxItem>
-								Always Show Bookmarks Bar
-							</MenubarCheckboxItem>
-							<MenubarCheckboxItem checked>
-								Always Show Full URLs
-							</MenubarCheckboxItem>
-							<MenubarSeparator />
-							<MenubarItem inset>
-								Reload <MenubarShortcut>⌘R</MenubarShortcut>
-							</MenubarItem>
-							<MenubarItem disabled inset>
-								Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-							</MenubarItem>
-							<MenubarSeparator />
-							<MenubarItem inset>Toggle Fullscreen</MenubarItem>
-							<MenubarSeparator />
-							<MenubarItem inset>Hide Sidebar</MenubarItem>
-						</MenubarContent>
-					</MenubarMenu>
-					<MenubarMenu>
-						<MenubarTrigger>Profiles</MenubarTrigger>
-						<MenubarContent>
-							<MenubarRadioGroup value="benoit">
-								<MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-								<MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-								<MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-							</MenubarRadioGroup>
-							<MenubarSeparator />
-							<MenubarItem inset>Edit...</MenubarItem>
-							<MenubarSeparator />
-							<MenubarItem inset>Add Profile...</MenubarItem>
-						</MenubarContent>
-					</MenubarMenu>
-				</Menubar>
-			</div>
+export default function Home() {
+	return (
+		<div className="min-h-screen bg-[#008080] p-8">
+			<div className="max-w-6xl mx-auto space-y-8">
+				<div className="bg-[#c0c0c0] p-6 border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
+					<h1 className="text-2xl font-bold mb-2 text-black">98.ui</h1>
+					<p className="text-black">
+						A collection of copy-and-paste components for building Windows 98
+						style UIs. Powered by Tailwind CSS and React.
+					</p>
+				</div>
 
-			<div className="flex w-72 flex-col gap-2">
-				<p>Textarea</p>
-				<Textarea placeholder="Type your message here." />
-			</div>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<ComponentSection
+						title="Button"
+						sourceCode={`<Button>Click me</Button>
+<Button disabled>Click me</Button>`}
+					>
+						<div className="flex gap-2">
+							<Button>Click me</Button>
+							<Button disabled>Click me</Button>
+						</div>
+					</ComponentSection>
 
-			<div className="flex w-72 flex-col gap-2">
-				<p>Progress</p>
-				<Progress value={50} />
-			</div>
+					<ComponentSection
+						title="Checkbox"
+						sourceCode={`<Checkbox id="terms" />
+<label htmlFor="terms">This is a checkbox</label>`}
+					>
+						<div className="flex flex-col gap-2">
+							<div className="flex gap-2">
+								<Checkbox id="terms" />
+								<label htmlFor="terms">This is a checkbox</label>
+							</div>
+							<div className="flex gap-2">
+								<Checkbox id="terms-disabled" disabled />
+								<label htmlFor="terms-disabled">Disabled checkbox</label>
+							</div>
+						</div>
+					</ComponentSection>
 
-			<div className="flex w-72 flex-col gap-2">
-				<p>Table</p>
-				<Table>
-					<TableCaption>A list of your recent invoices.</TableCaption>
-					<TableHeader>
-						<TableRow>
-							<TableHead className="w-[100px]">Invoice</TableHead>
-							<TableHead>Status</TableHead>
-							<TableHead>Method</TableHead>
-							<TableHead>Amount</TableHead>
-						</TableRow>
-					</TableHeader>
-					<TableBody>
-						<TableRow>
-							<TableCell className="font-medium">INV001</TableCell>
-							<TableCell>Paid</TableCell>
-							<TableCell>Credit Card</TableCell>
-							<TableCell>$250.00</TableCell>
-						</TableRow>
+					<ComponentSection
+						title="Radio Group"
+						sourceCode={`<RadioGroup defaultValue="default">
+	<RadioGroupItem value="default" id="r1" />
+	<Label htmlFor="r1">Default</Label>
+</RadioGroup>`}
+					>
+						<RadioGroup defaultValue="default">
+							<div className="flex items-center space-x-2">
+								<RadioGroupItem value="default" id="r1" />
+								<Label htmlFor="r1">Default</Label>
+							</div>
+							<div className="flex items-center space-x-2">
+								<RadioGroupItem value="comfortable" id="r2" disabled />
+								<Label htmlFor="r2">Disabled</Label>
+							</div>
+						</RadioGroup>
+					</ComponentSection>
 
-						<TableRow>
-							<TableCell className="font-medium">INV002</TableCell>
-							<TableCell>Paid</TableCell>
-							<TableCell>Credit Card</TableCell>
-							<TableCell>$450.00</TableCell>
-						</TableRow>
-					</TableBody>
-				</Table>
-			</div>
-			<div className="flex w-72 flex-col gap-2">
-				<p>Tabs</p>
-				<Tabs defaultValue="account" className="w-[400px]">
-					<TabsList>
-						<TabsTrigger value="account">Account</TabsTrigger>
-						<TabsTrigger value="password">Password</TabsTrigger>
-					</TabsList>
-					<TabsContent value="account">
-						Make changes to your account here.
-					</TabsContent>
-					<TabsContent value="password">Change your password here.</TabsContent>
-				</Tabs>
-			</div>
+					<ComponentSection
+						title="Input"
+						sourceCode={`<Input type="email" placeholder="test@test.com" />
+<Input disabled type="email" placeholder="test@test.com" />`}
+					>
+						<div className="flex flex-col gap-2">
+							<Input type="email" placeholder="test@test.com" />
+							<Input disabled type="email" placeholder="test@test.com" />
+						</div>
+					</ComponentSection>
 
-			<div className="flex w-72 flex-col gap-2">
-				<p>Made by hidaviddong</p>
+					<ComponentSection
+						title="Select"
+						sourceCode={`<Select>
+	<SelectTrigger>
+		<SelectValue placeholder="Theme" />
+	</SelectTrigger>
+	<SelectContent>
+		<SelectItem value="light">Light</SelectItem>
+		<SelectItem value="dark">Dark</SelectItem>
+	</SelectContent>
+</Select>`}
+					>
+						<Select>
+							<SelectTrigger className="w-[180px]">
+								<SelectValue placeholder="Theme" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectItem value="light">Light</SelectItem>
+								<SelectItem value="dark">Dark</SelectItem>
+								<SelectItem value="system">System</SelectItem>
+							</SelectContent>
+						</Select>
+					</ComponentSection>
+
+					<ComponentSection
+						title="Slider"
+						sourceCode={`<Slider defaultValue={[20]} />
+<Slider defaultValue={[33]} max={100} step={1} />`}
+					>
+						<div className="flex flex-col gap-4">
+							<Slider defaultValue={[20]} />
+							<Slider defaultValue={[33]} max={100} step={1} />
+						</div>
+					</ComponentSection>
+
+					<ComponentSection
+						title="Progress"
+						sourceCode={`<Progress value={33} />`}
+					>
+						<Progress value={33} />
+					</ComponentSection>
+
+					<ComponentSection
+						title="Textarea"
+						sourceCode={`<Textarea placeholder="Type your message here." />`}
+					>
+						<Textarea placeholder="Type your message here." />
+					</ComponentSection>
+
+					<ComponentSection
+						title="Table"
+						sourceCode={`<Table>
+	<TableHeader>
+		<TableRow>
+			<TableHead>Name</TableHead>
+			<TableHead>Status</TableHead>
+		</TableRow>
+	</TableHeader>
+	<TableBody>
+		<TableRow>
+			<TableCell>John Doe</TableCell>
+			<TableCell>Active</TableCell>
+		</TableRow>
+	</TableBody>
+</Table>`}
+					>
+						<Table>
+							<TableHeader>
+								<TableRow>
+									<TableHead>Name</TableHead>
+									<TableHead>Status</TableHead>
+								</TableRow>
+							</TableHeader>
+							<TableBody>
+								<TableRow>
+									<TableCell>John Doe</TableCell>
+									<TableCell>Active</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell>Jane Smith</TableCell>
+									<TableCell>Inactive</TableCell>
+								</TableRow>
+							</TableBody>
+						</Table>
+					</ComponentSection>
+
+					<ComponentSection
+						title="Tabs"
+						sourceCode={`<Tabs defaultValue="account">
+	<TabsList>
+		<TabsTrigger value="account">Account</TabsTrigger>
+		<TabsTrigger value="password">Password</TabsTrigger>
+	</TabsList>
+	<TabsContent value="account">Account content</TabsContent>
+	<TabsContent value="password">Password content</TabsContent>
+</Tabs>`}
+					>
+						<Tabs defaultValue="account">
+							<TabsList>
+								<TabsTrigger value="account">Account</TabsTrigger>
+								<TabsTrigger value="password">Password</TabsTrigger>
+							</TabsList>
+							<TabsContent value="account">Account content</TabsContent>
+							<TabsContent value="password">Password content</TabsContent>
+						</Tabs>
+					</ComponentSection>
+
+					<ComponentSection
+						title="Menubar"
+						sourceCode={`<Menubar className="border-none rounded-none">
+	<MenubarMenu>
+		<MenubarTrigger>File</MenubarTrigger>
+		<MenubarContent>
+			<MenubarItem>
+				New Window <MenubarShortcut>⌘N</MenubarShortcut>
+			</MenubarItem>
+			<MenubarItem disabled>New Incognito Window</MenubarItem>
+			<MenubarSeparator />
+			<MenubarSub>
+				<MenubarSubTrigger>Share</MenubarSubTrigger>
+				<MenubarSubContent>
+					<MenubarItem>Email link</MenubarItem>
+					<MenubarItem>Messages</MenubarItem>
+					<MenubarItem>Notes</MenubarItem>
+				</MenubarSubContent>
+			</MenubarSub>
+			<MenubarSeparator />
+			<MenubarItem>
+				Print... <MenubarShortcut>⌘P</MenubarShortcut>
+			</MenubarItem>
+		</MenubarContent>
+	</MenubarMenu>
+	<MenubarMenu>
+		<MenubarTrigger>Edit</MenubarTrigger>
+		<MenubarContent>
+			<MenubarItem>
+				Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+			</MenubarItem>
+			<MenubarItem>
+				Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+			</MenubarItem>
+			<MenubarSeparator />
+			<MenubarSub>
+				<MenubarSubTrigger>Find</MenubarSubTrigger>
+				<MenubarSubContent>
+					<MenubarItem>Search the web</MenubarItem>
+					<MenubarSeparator />
+					<MenubarItem>Find...</MenubarItem>
+					<MenubarItem>Find Next</MenubarItem>
+					<MenubarItem>Find Previous</MenubarItem>
+				</MenubarSubContent>
+			</MenubarSub>
+			<MenubarSeparator />
+			<MenubarItem>Cut</MenubarItem>
+			<MenubarItem>Copy</MenubarItem>
+			<MenubarItem>Paste</MenubarItem>
+		</MenubarContent>
+	</MenubarMenu>
+	<MenubarMenu>
+		<MenubarTrigger>View</MenubarTrigger>
+		<MenubarContent>
+			<MenubarCheckboxItem>
+				Always Show Bookmarks Bar
+			</MenubarCheckboxItem>
+			<MenubarCheckboxItem checked>
+				Always Show Full URLs
+			</MenubarCheckboxItem>
+		</MenubarContent>
+	</MenubarMenu>
+	<MenubarMenu>
+		<MenubarTrigger>Help</MenubarTrigger>
+		<MenubarContent>
+			<MenubarItem>About 98.ui</MenubarItem>
+		</MenubarContent>
+	</MenubarMenu>
+</Menubar>`}
+					>
+						<div className="bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080]">
+							<Menubar className="border-none rounded-none">
+								<MenubarMenu>
+									<MenubarTrigger>File</MenubarTrigger>
+									<MenubarContent>
+										<MenubarItem>
+											New Window <MenubarShortcut>⌘N</MenubarShortcut>
+										</MenubarItem>
+										<MenubarItem disabled>New Incognito Window</MenubarItem>
+										<MenubarSeparator />
+										<MenubarSub>
+											<MenubarSubTrigger>Share</MenubarSubTrigger>
+											<MenubarSubContent>
+												<MenubarItem>Email link</MenubarItem>
+												<MenubarItem>Messages</MenubarItem>
+												<MenubarItem>Notes</MenubarItem>
+											</MenubarSubContent>
+										</MenubarSub>
+										<MenubarSeparator />
+										<MenubarItem>
+											Print... <MenubarShortcut>⌘P</MenubarShortcut>
+										</MenubarItem>
+									</MenubarContent>
+								</MenubarMenu>
+								<MenubarMenu>
+									<MenubarTrigger>Edit</MenubarTrigger>
+									<MenubarContent>
+										<MenubarItem>
+											Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+										</MenubarItem>
+										<MenubarItem>
+											Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+										</MenubarItem>
+										<MenubarSeparator />
+										<MenubarSub>
+											<MenubarSubTrigger>Find</MenubarSubTrigger>
+											<MenubarSubContent>
+												<MenubarItem>Search the web</MenubarItem>
+												<MenubarSeparator />
+												<MenubarItem>Find...</MenubarItem>
+												<MenubarItem>Find Next</MenubarItem>
+												<MenubarItem>Find Previous</MenubarItem>
+											</MenubarSubContent>
+										</MenubarSub>
+										<MenubarSeparator />
+										<MenubarItem>Cut</MenubarItem>
+										<MenubarItem>Copy</MenubarItem>
+										<MenubarItem>Paste</MenubarItem>
+									</MenubarContent>
+								</MenubarMenu>
+								<MenubarMenu>
+									<MenubarTrigger>View</MenubarTrigger>
+									<MenubarContent>
+										<MenubarCheckboxItem>
+											Always Show Bookmarks Bar
+										</MenubarCheckboxItem>
+										<MenubarCheckboxItem checked>
+											Always Show Full URLs
+										</MenubarCheckboxItem>
+									</MenubarContent>
+								</MenubarMenu>
+								<MenubarMenu>
+									<MenubarTrigger>Help</MenubarTrigger>
+									<MenubarContent>
+										<MenubarItem>About 98.ui</MenubarItem>
+									</MenubarContent>
+								</MenubarMenu>
+							</Menubar>
+						</div>
+					</ComponentSection>
+				</div>
 			</div>
 		</div>
 	);
