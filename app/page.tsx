@@ -50,7 +50,13 @@ const ComponentSection = ({
 	title,
 	children,
 	sourceCode,
-}: { title: string; children: React.ReactNode; sourceCode: string }) => {
+	link,
+}: {
+	title: string;
+	children: React.ReactNode;
+	sourceCode: string;
+	link: string;
+}) => {
 	return (
 		<div className="flex flex-col gap-4 p-4 bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
 			<div className="flex items-center justify-between">
@@ -59,15 +65,27 @@ const ComponentSection = ({
 					<DialogTrigger asChild>
 						<Button>View Source</Button>
 					</DialogTrigger>
+
 					<DialogContent className="sm:max-w-[800px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
 						<DialogHeader>
-							<DialogTitle className="text-black">
-								Source Code - {title}
-							</DialogTitle>
+							<DialogTitle>Source Code - {title}</DialogTitle>
 						</DialogHeader>
-						<pre className="p-4 bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] rounded-none overflow-auto max-h-[60vh]">
-							<code className="text-black">{sourceCode}</code>
-						</pre>
+						<div className="space-y-6 p-2">
+							<div>
+								<h3 className="text-lg font-bold mb-2">Install</h3>
+								<div className="flex items-center gap-2">
+									<code className="text-sm bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] p-2 flex-1">
+										npx shadcn@latest add {link}
+									</code>
+								</div>
+							</div>
+							<div>
+								<h3 className="text-lg font-bold mb-2">Code</h3>
+								<pre className="p-4 bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] rounded-none overflow-auto max-h-[60vh]">
+									<code className="text-black">{sourceCode}</code>
+								</pre>
+							</div>
+						</div>
 					</DialogContent>
 				</Dialog>
 			</div>
@@ -91,6 +109,7 @@ export default function Home() {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<ComponentSection
 						title="Button"
+						link="https://98-ui.vercel.app/r/button.json"
 						sourceCode={`<Button>Click me</Button>
 <Button disabled>Click me</Button>`}
 					>
@@ -102,6 +121,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Checkbox"
+						link="https://98-ui.vercel.app/r/checkbox.json"
 						sourceCode={`<Checkbox id="terms" />
 <label htmlFor="terms">This is a checkbox</label>`}
 					>
@@ -119,6 +139,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Radio Group"
+						link="https://98-ui.vercel.app/r/radio-group.json"
 						sourceCode={`<RadioGroup defaultValue="default">
 	<RadioGroupItem value="default" id="r1" />
 	<Label htmlFor="r1">Default</Label>
@@ -138,6 +159,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Input"
+						link="https://98-ui.vercel.app/r/input.json"
 						sourceCode={`<Input type="email" placeholder="test@test.com" />
 <Input disabled type="email" placeholder="test@test.com" />`}
 					>
@@ -149,6 +171,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Select"
+						link="https://98-ui.vercel.app/r/select.json"
 						sourceCode={`<Select>
 	<SelectTrigger>
 		<SelectValue placeholder="Theme" />
@@ -173,17 +196,19 @@ export default function Home() {
 
 					<ComponentSection
 						title="Slider"
+						link="https://98-ui.vercel.app/r/slider.json"
 						sourceCode={`<Slider defaultValue={[20]} />
 <Slider defaultValue={[33]} max={100} step={1} />`}
 					>
 						<div className="flex flex-col gap-4">
-							<Slider defaultValue={[20]} />
+							<Slider orientation="vertical" defaultValue={[20]} />
 							<Slider defaultValue={[33]} max={100} step={1} />
 						</div>
 					</ComponentSection>
 
 					<ComponentSection
 						title="Progress"
+						link="https://98-ui.vercel.app/r/progress.json"
 						sourceCode={`<Progress value={33} />`}
 					>
 						<Progress value={33} />
@@ -191,6 +216,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Textarea"
+						link="https://98-ui.vercel.app/r/textarea.json"
 						sourceCode={`<Textarea placeholder="Type your message here." />`}
 					>
 						<Textarea placeholder="Type your message here." />
@@ -198,6 +224,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Table"
+						link="https://98-ui.vercel.app/r/table.json"
 						sourceCode={`<Table>
 	<TableHeader>
 		<TableRow>
@@ -235,6 +262,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Tabs"
+						link="https://98-ui.vercel.app/r/tabs.json"
 						sourceCode={`<Tabs defaultValue="account">
 	<TabsList>
 		<TabsTrigger value="account">Account</TabsTrigger>
@@ -256,6 +284,7 @@ export default function Home() {
 
 					<ComponentSection
 						title="Menubar"
+						link="https://98-ui.vercel.app/r/menubar.json"
 						sourceCode={`<Menubar className="border-none rounded-none">
 	<MenubarMenu>
 		<MenubarTrigger>File</MenubarTrigger>
