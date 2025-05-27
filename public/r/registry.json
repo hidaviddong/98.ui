@@ -1,99 +1,138 @@
 {
-    "$schema": "https://ui.shadcn.com/schema/registry.json",
-    "name": "98.ui",
-    "homepage": "https://98-ui.vercel.app/",
-    "dependencies":[
-      "tailwind-merge",
-      "clsx"
-    ],
-    "items": [
-        {
-            "name": "button",
-            "type": "registry:ui",
-            "dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
-            "files": [
-              {
-                "path": "components/ui/button.tsx",
-                "type": "registry:ui"
-              }
-            ]
-        },
-        {
-          "name": "checkbox",
-          "type": "registry:ui",
-          "dependencies": ["@radix-ui/react-checkbox"],
-          "files": [
-            {
-              "path": "components/ui/checkbox.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        },
-        {
-          "name": "radio-group",
-          "type": "registry:ui",
-          "dependencies": ["@radix-ui/react-radio-group"],
-          "files": [
-            {
-              "path": "components/ui/radio-group.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        },
-        {
-          "name": "input",
-          "type": "registry:ui",
-          "files": [
-            {
-              "path": "components/ui/input.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        },
-        {
-          "name": "select",
-          "type": "registry:ui",
-          "dependencies": ["@radix-ui/react-select"],
-          "files": [
-            {
-              "path": "components/ui/select.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        },
-        {
-          "name": "slider",
-          "type": "registry:ui",
-          "dependencies": ["@radix-ui/react-slider"],
-          "files": [
-            {
-              "path": "components/ui/slider.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        },
-        {
-          "name": "dialog",
-          "type": "registry:ui",
-          "dependencies": ["@radix-ui/react-dialog"],
-          "files": [
-            {
-              "path": "components/ui/dialog.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        },
-        {
-          "name": "menubar",
-          "type": "registry:ui",
-          "dependencies": ["@radix-ui/react-menubar"],
-          "files": [
-            {
-              "path": "components/ui/menubar.tsx",
-              "type": "registry:ui"
-            }
-          ]
-        }
-    ]
+	"$schema": "https://ui.shadcn.com/schema/registry.json",
+	"name": "98.ui",
+	"homepage": "https://98-ui.vercel.app/",
+	"dependencies": ["tailwind-merge", "clsx"],
+	"items": [
+		{
+			"name": "button",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-slot", "class-variance-authority"],
+			"files": [
+				{
+					"path": "components/ui/button.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "checkbox",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-checkbox"],
+			"files": [
+				{
+					"path": "components/ui/checkbox.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "radio-group",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-radio-group"],
+			"files": [
+				{
+					"path": "components/ui/radio-group.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "input",
+			"type": "registry:ui",
+			"files": [
+				{
+					"path": "components/ui/input.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "select",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-select"],
+			"files": [
+				{
+					"path": "components/ui/select.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "slider",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-slider"],
+			"files": [
+				{
+					"path": "components/ui/slider.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "dialog",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-dialog"],
+			"files": [
+				{
+					"path": "components/ui/dialog.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "menubar",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-menubar"],
+			"files": [
+				{
+					"path": "components/ui/menubar.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "tabs",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-tabs"],
+			"files": [
+				{
+					"path": "components/ui/tabs.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "table",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-table"],
+			"files": [
+				{
+					"path": "components/ui/table.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "progress",
+			"type": "registry:ui",
+			"dependencies": ["@radix-ui/react-progress"],
+			"files": [
+				{
+					"path": "components/ui/progress.tsx",
+					"type": "registry:ui"
+				}
+			]
+		},
+		{
+			"name": "textarea",
+			"type": "registry:ui",
+			"files": [
+				{
+					"path": "components/ui/textarea.tsx",
+					"type": "registry:ui"
+				}
+			]
+		}
+	]
 }
-  

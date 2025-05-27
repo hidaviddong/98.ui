@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-progress",
+    "@radix-ui/react-progress"
+  ],
+  "files": [
+    {
+      "path": "components/ui/progress.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as ProgressPrimitive from \"@radix-ui/react-progress\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Progress({\n\tclassName,\n\tvalue,\n\t...props\n}: React.ComponentProps<typeof ProgressPrimitive.Root>) {\n\treturn (\n\t\t<ProgressPrimitive.Root\n\t\t\tdata-slot=\"progress\"\n\t\t\tclassName={cn(\n\t\t\t\t\"bg-primary h-8 p-[4px] shadow-progress relative w-full overflow-hidden\",\n\t\t\t\tclassName,\n\t\t\t)}\n\t\t\t{...props}\n\t\t>\n\t\t\t<ProgressPrimitive.Indicator\n\t\t\t\tdata-slot=\"progress-indicator\"\n\t\t\t\tclassName=\"bg-[#000080] h-full w-full flex-1 transition-all\"\n\t\t\t\tstyle={{ transform: `translateX(-${100 - (value || 0)}%)` }}\n\t\t\t/>\n\t\t</ProgressPrimitive.Root>\n\t);\n}\n\nexport { Progress };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

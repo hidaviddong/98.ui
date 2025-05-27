@@ -8,7 +8,7 @@
     "registry:build": "shadcn registry:build",
     "start": "next start",
     "lint": "next lint",
-    "format": "biome format --write app components lib"
+    "format": "biome format --write app components lib registry.json"
   },
   "simple-git-hooks": {
     "pre-commit": "npm run lint && npm run format"
