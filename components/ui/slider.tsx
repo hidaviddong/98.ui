@@ -5,7 +5,7 @@ import * as SliderPrimitive from "@radix-ui/react-slider";
 
 import { cn } from "@/lib/utils";
 
-function SliderIcon({ className }: { className: string }) {
+function SliderIcon() {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,6 @@ function SliderIcon({ className }: { className: string }) {
 			height="21"
 			viewBox="0 0 11 21"
 			fill="none"
-			className={className}
 		>
 			<g filter="url(#filter0_iiii_4_20)">
 				<path
@@ -112,11 +111,9 @@ function SliderIcon({ className }: { className: string }) {
 	);
 }
 
-function SliderVerticalIcon({ className }: { className: string }) {
+function SliderVerticalIcon() {
 	return (
-		<div
-			className={cn("w-[21px] h-[11px] bg-[#C0C0C0] shadow-button", className)}
-		></div>
+		<div className={cn("w-[21px] h-[13.5px] bg-[#C0C0C0] shadow-button")}></div>
 	);
 }
 
@@ -149,12 +146,12 @@ function Slider({
 			></SliderPrimitive.Track>
 			<SliderPrimitive.Thumb
 				data-slot="slider-thumb"
-				className="block absolute focus:outline-none size-4 shrink-0 transition-[color,box-shadow] disabled:pointer-events-none"
+				className="flex justify-center items-center focus:outline-none size-4 shrink-0 transition-[color,box-shadow] disabled:pointer-events-none"
 			>
 				{props.orientation === "vertical" ? (
-					<SliderVerticalIcon className="relative right-2.5" />
+					<SliderVerticalIcon />
 				) : (
-					<SliderIcon className="relative bottom-2.5" />
+					<SliderIcon />
 				)}
 			</SliderPrimitive.Thumb>
 		</SliderPrimitive.Root>

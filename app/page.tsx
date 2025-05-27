@@ -35,6 +35,20 @@ import {
 	MenubarSubTrigger,
 	MenubarTrigger,
 } from "@/components/ui/menubar";
+import { Textarea } from "@/components/ui/textarea";
+import { Progress } from "@/components/ui/progress";
+
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/components/ui/table";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
 	return (
@@ -111,7 +125,8 @@ export default function Home() {
 
 			<div className="flex w-72 flex-col gap-2">
 				<p>Slider</p>
-				<Slider defaultValue={[33]} max={100} step={1} />
+
+				<Slider defaultValue={[20]} />
 				<Slider defaultValue={[33]} max={100} step={1} orientation="vertical" />
 			</div>
 
@@ -245,6 +260,63 @@ export default function Home() {
 						</MenubarContent>
 					</MenubarMenu>
 				</Menubar>
+			</div>
+
+			<div className="flex w-72 flex-col gap-2">
+				<p>Textarea</p>
+				<Textarea placeholder="Type your message here." />
+			</div>
+
+			<div className="flex w-72 flex-col gap-2">
+				<p>Progress</p>
+				<Progress value={50} />
+			</div>
+
+			<div className="flex w-72 flex-col gap-2">
+				<p>Table</p>
+				<Table>
+					<TableCaption>A list of your recent invoices.</TableCaption>
+					<TableHeader>
+						<TableRow>
+							<TableHead className="w-[100px]">Invoice</TableHead>
+							<TableHead>Status</TableHead>
+							<TableHead>Method</TableHead>
+							<TableHead>Amount</TableHead>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						<TableRow>
+							<TableCell className="font-medium">INV001</TableCell>
+							<TableCell>Paid</TableCell>
+							<TableCell>Credit Card</TableCell>
+							<TableCell>$250.00</TableCell>
+						</TableRow>
+
+						<TableRow>
+							<TableCell className="font-medium">INV002</TableCell>
+							<TableCell>Paid</TableCell>
+							<TableCell>Credit Card</TableCell>
+							<TableCell>$450.00</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+			</div>
+			<div className="flex w-72 flex-col gap-2">
+				<p>Tabs</p>
+				<Tabs defaultValue="account" className="w-[400px]">
+					<TabsList>
+						<TabsTrigger value="account">Account</TabsTrigger>
+						<TabsTrigger value="password">Password</TabsTrigger>
+					</TabsList>
+					<TabsContent value="account">
+						Make changes to your account here.
+					</TabsContent>
+					<TabsContent value="password">Change your password here.</TabsContent>
+				</Tabs>
+			</div>
+
+			<div className="flex w-72 flex-col gap-2">
+				<p>Made by hidaviddong</p>
 			</div>
 		</div>
 	);
