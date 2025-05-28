@@ -211,6 +211,7 @@ export default function Home() {
 	<SelectContent>
 		<SelectItem value="light">Light</SelectItem>
 		<SelectItem value="dark">Dark</SelectItem>
+		<SelectItem value="system">System</SelectItem>
 	</SelectContent>
 </Select>`}
 					>
@@ -229,7 +230,7 @@ export default function Home() {
 					<ComponentSection
 						title="Slider"
 						link="https://98-ui.vercel.app/r/slider.json"
-						sourceCode={`<Slider defaultValue={[20]} />
+						sourceCode={`<Slider orientation="vertical" defaultValue={[20]} />
 <Slider defaultValue={[33]} max={100} step={1} />`}
 					>
 						<div className="flex flex-col gap-4">
@@ -268,6 +269,10 @@ export default function Home() {
 		<TableRow>
 			<TableCell>John Doe</TableCell>
 			<TableCell>Active</TableCell>
+		</TableRow>
+		<TableRow>
+			<TableCell>Jane Smith</TableCell>
+			<TableCell>Inactive</TableCell>
 		</TableRow>
 	</TableBody>
 </Table>`}
