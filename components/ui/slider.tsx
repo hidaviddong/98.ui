@@ -113,7 +113,11 @@ function SliderIcon() {
 
 function SliderVerticalIcon() {
 	return (
-		<div className={cn("w-[21px] h-[13.5px] bg-[#C0C0C0] shadow-button")}></div>
+		<div
+			className={cn(
+				"w-[21px] h-[13.5px] bg-[#C0C0C0] shadow-[inset_-1px_-1px_0px_0px_#0A0A0A,inset_1px_1px_0px_0px_#FFF,inset_-2px_-2px_0px_0px_#808080,inset_2px_2px_0px_0px_#DFDFDF]",
+			)}
+		></div>
 	);
 }
 
@@ -141,7 +145,7 @@ function Slider({
 			<SliderPrimitive.Track
 				data-slot="slider-track"
 				className={cn(
-					"bg-black shadow-slider relative grow overflow-hidden data-[orientation=horizontal]:h-[3px] data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-[3px]",
+					"bg-black shadow-[inset_1px_1px_0px_0px_#b8b8b8,0px_1px_0px_0px_#fff,inset_-1px_-1px_0px_0px_#757575,0px_1px_0px_0px_#9f9f9f] relative grow overflow-hidden data-[orientation=horizontal]:h-[3px] data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-[3px]",
 				)}
 			></SliderPrimitive.Track>
 			<SliderPrimitive.Thumb

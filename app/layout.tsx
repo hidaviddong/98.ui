@@ -15,7 +15,7 @@ const msSansSerif = localFont({
 			style: "normal",
 		},
 	],
-	variable: "--font-ms-sans-serif",
+	variable: "--font-sans",
 	display: "swap",
 });
 

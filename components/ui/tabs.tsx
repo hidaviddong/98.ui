@@ -42,7 +42,7 @@ function TabsTrigger({
 		<TabsPrimitive.Trigger
 			data-slot="tabs-trigger"
 			className={cn(
-				"bg-primary shadow-tabs text-foreground inline-flex h-[calc(100%-1px)] rounded-tl-sm rounded-tr-sm flex-1 items-center justify-center px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow,transform] disabled:pointer-events-none translate-y-[1px] data-[state=active]:translate-y-[3px] disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+				"bg-[#C0C0C0] shadow-[inset_-2px_0px_0px_0px_rgba(38,38,38,0.5),inset_-1px_0px_0px_0px_#0a0a0a,inset_1px_1px_0px_0px_#fff,inset_2px_2px_0px_0px_#dfdfdf] text-foreground inline-flex h-[calc(100%-1px)] rounded-tl-sm rounded-tr-sm flex-1 items-center justify-center px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow,transform] disabled:pointer-events-none translate-y-[1px] data-[state=active]:translate-y-[3px] disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 				className,
 			)}
 			{...props}
@@ -58,7 +58,7 @@ function TabsContent({
 		<TabsPrimitive.Content
 			data-slot="tabs-content"
 			className={cn(
-				"flex-1 px-2 shadow-tabs-content outline-none bg-primary",
+				"flex-1 px-2 shadow-[inset_-1px_-1px_0px_0px_#0a0a0a,inset_1px_1px_0px_0px_#fff,inset_-2px_-2px_0px_0px_gray,inset_2px_2px_0px_0px_#dfdfdf] outline-none bg-[#C0C0C0]",
 				className,
 			)}
 			{...props}

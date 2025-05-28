@@ -18,6 +18,7 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
+import Link from "next/link";
 
 import {
 	Menubar,
@@ -66,7 +67,7 @@ const ComponentSection = ({
 						<Button>View Source</Button>
 					</DialogTrigger>
 
-					<DialogContent className="sm:max-w-[800px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
+					<DialogContent className="w-[95vw] max-w-[800px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
 						<DialogHeader>
 							<DialogTitle>Source Code - {title}</DialogTitle>
 						</DialogHeader>
@@ -74,7 +75,7 @@ const ComponentSection = ({
 							<div>
 								<h3 className="text-lg font-bold mb-2">Install</h3>
 								<div className="flex items-center gap-2">
-									<code className="text-sm bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] p-2 flex-1">
+									<code className="text-sm bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] p-2 flex-1 overflow-x-auto">
 										npx shadcn@latest add {link}
 									</code>
 								</div>
@@ -82,7 +83,9 @@ const ComponentSection = ({
 							<div>
 								<h3 className="text-lg font-bold mb-2">Code</h3>
 								<pre className="p-4 bg-[#ffffff] border-2 border-t-[#808080] border-l-[#808080] border-r-[#ffffff] border-b-[#ffffff] rounded-none overflow-auto max-h-[60vh]">
-									<code className="text-black">{sourceCode}</code>
+									<code className="text-black whitespace-pre-wrap break-words">
+										{sourceCode}
+									</code>
 								</pre>
 							</div>
 						</div>
@@ -94,16 +97,43 @@ const ComponentSection = ({
 	);
 };
 
+const SocialLink = ({
+	href,
+	children,
+}: {
+	href: string;
+	children: React.ReactNode;
+}) => {
+	return (
+		<Link
+			href={href}
+			target="_blank"
+			rel="noopener noreferrer"
+			className="text-black hover:underline"
+		>
+			{children}
+		</Link>
+	);
+};
+
 export default function Home() {
 	return (
 		<div className="min-h-screen bg-[#008080] p-8">
 			<div className="max-w-6xl mx-auto space-y-8">
 				<div className="bg-[#c0c0c0] p-6 border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
 					<h1 className="text-2xl font-bold mb-2 text-black">98.ui</h1>
-					<p className="text-black">
+					<p className="text-black mb-4">
 						A collection of copy-and-paste components for building Windows 98
 						style UIs. Powered by Tailwind CSS and React.
 					</p>
+					<div className="flex gap-4">
+						<SocialLink href="https://x.com/hidaviddong">
+							<Button>Twitter</Button>
+						</SocialLink>
+						<SocialLink href="https://github.com/hidaviddong/98.ui">
+							<Button>GitHub</Button>
+						</SocialLink>
+					</div>
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -132,7 +162,9 @@ export default function Home() {
 							</div>
 							<div className="flex gap-2">
 								<Checkbox id="terms-disabled" disabled />
-								<label htmlFor="terms-disabled">Disabled checkbox</label>
+								<label className="text-[#808080]" htmlFor="terms-disabled">
+									Disabled checkbox
+								</label>
 							</div>
 						</div>
 					</ComponentSection>
@@ -422,6 +454,88 @@ export default function Home() {
 								</MenubarMenu>
 							</Menubar>
 						</div>
+					</ComponentSection>
+
+					<ComponentSection
+						title="Dialog"
+						link="https://98-ui.vercel.app/r/dialog.json"
+						sourceCode={`<Dialog>
+	<DialogTrigger asChild>
+		<Button>Open Dialog</Button>
+	</DialogTrigger>
+	<DialogContent className="sm:max-w-[425px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
+		<DialogHeader>
+			<DialogTitle>Dialog Title</DialogTitle>
+		</DialogHeader>
+		<div className="grid gap-4 py-4">
+			<div className="grid grid-cols-4 items-center gap-4">
+				<Label htmlFor="name" className="text-right">
+					Name
+				</Label>
+				<Input
+					id="name"
+					defaultValue="John Doe"
+					className="col-span-3"
+				/>
+			</div>
+			<div className="grid grid-cols-4 items-center gap-4">
+				<Label htmlFor="username" className="text-right">
+					Username
+				</Label>
+				<Input
+					id="username"
+					defaultValue="@johndoe"
+					className="col-span-3"
+				/>
+			</div>
+		</div>
+		<div className="flex justify-end gap-2">
+			<Button>Save changes</Button>
+			<DialogTrigger asChild>
+				<Button>Cancel</Button>
+			</DialogTrigger>
+		</div>
+	</DialogContent>
+</Dialog>`}
+					>
+						<Dialog>
+							<DialogTrigger asChild>
+								<Button>Open Dialog</Button>
+							</DialogTrigger>
+							<DialogContent className="sm:max-w-[425px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
+								<DialogHeader>
+									<DialogTitle>Dialog Title</DialogTitle>
+								</DialogHeader>
+								<div className="grid gap-4 py-4">
+									<div className="grid grid-cols-4 items-center gap-4">
+										<Label htmlFor="name" className="text-right">
+											Name
+										</Label>
+										<Input
+											id="name"
+											defaultValue="John Doe"
+											className="col-span-3"
+										/>
+									</div>
+									<div className="grid grid-cols-4 items-center gap-4">
+										<Label htmlFor="username" className="text-right">
+											Username
+										</Label>
+										<Input
+											id="username"
+											defaultValue="@johndoe"
+											className="col-span-3"
+										/>
+									</div>
+								</div>
+								<div className="flex justify-end gap-2">
+									<Button>Save changes</Button>
+									<DialogTrigger asChild>
+										<Button>Cancel</Button>
+									</DialogTrigger>
+								</div>
+							</DialogContent>
+						</Dialog>
 					</ComponentSection>
 				</div>
 			</div>
