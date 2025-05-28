@@ -67,7 +67,7 @@ const ComponentSection = ({
 						<Button>View Source</Button>
 					</DialogTrigger>
 
-					<DialogContent className="w-[95vw] max-w-[800px] bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
+					<DialogContent className="sm:max-w-[800px]  bg-[#c0c0c0] border-2 border-t-[#ffffff] border-l-[#ffffff] border-r-[#808080] border-b-[#808080] shadow-[2px_2px_0px_0px_#000000]">
 						<DialogHeader>
 							<DialogTitle>Source Code - {title}</DialogTitle>
 						</DialogHeader>
